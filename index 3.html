@@ -5,62 +5,261 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Meadow Park Hoops Classic 2026</title>
   <style>
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b1220;color:#fff}
-    .hero{text-align:center;padding:60px 20px;background:linear-gradient(180deg,#0b1220,#132040)}
-    .hero img{max-width:500px;width:90%;margin:0 auto 20px;display:block}
-    h1{font-size:40px;margin:10px 0}
-    p{margin:0 0 10px}
-    .section{padding:40px 20px;max-width:1000px;margin:auto}
-    .card{background:#101a33;padding:20px;margin-bottom:20px;border-radius:16px}
-    h2{margin-top:0;color:#4cc96b}
+    :root{
+      --bg:#0b1220;
+      --panel:#101a33;
+      --panel2:#0f1930;
+      --text:#ffffff;
+      --muted:#cfd6e6;
+      --accent:#4cc96b;
+      --accent2:#6aa6ff;
+      --stroke:rgba(255,255,255,.10);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.4}
+    a{color:var(--accent2);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .hero{
+      padding:56px 18px 40px;
+      text-align:center;
+      background:linear-gradient(180deg,#0b1220 0%, #132040 100%);
+      border-bottom:1px solid var(--stroke);
+    }
+    .logo{
+      max-width:440px;
+      width:92%;
+      height:auto;
+      display:block;
+      margin:0 auto 18px;
+      border-radius:18px;
+    }
+    .title{
+      font-size:38px;
+      margin:8px 0 6px;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      margin:0 auto;
+      max-width:860px;
+      color:var(--muted);
+      font-size:16px;
+    }
+    .pillrow{
+      margin:18px auto 0;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+      max-width:900px;
+    }
+    .pill{
+      display:inline-block;
+      padding:10px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--stroke);
+      color:var(--text);
+      font-size:14px;
+    }
+    .wrap{max-width:1050px;margin:0 auto;padding:26px 16px 44px}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:start}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
+    .card{
+      background:linear-gradient(180deg,var(--panel) 0%, var(--panel2) 100%);
+      border:1px solid var(--stroke);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 10px 26px rgba(0,0,0,.25);
+    }
+    h2{margin:0 0 10px;color:var(--accent);font-size:20px}
+    h3{margin:14px 0 8px;font-size:16px;color:#eaf0ff}
+    .small{color:var(--muted);font-size:14px;margin:0}
+    .list{margin:10px 0 0;padding-left:18px;color:var(--muted)}
+    .list li{margin:6px 0}
     .roster-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     @media(max-width:700px){.roster-grid{grid-template-columns:1fr}}
-    .name{background:#0b1220;padding:8px;border-radius:10px}
-    footer{text-align:center;padding:30px 10px;color:#ccc}
-    .banner{width:100%;border-radius:20px;margin-top:20px}
+    .name{
+      background:rgba(0,0,0,.18);
+      border:1px solid var(--stroke);
+      padding:10px 12px;
+      border-radius:12px;
+    }
+    .callout{
+      margin-top:12px;
+      padding:12px 12px;
+      border-radius:14px;
+      background:rgba(76,201,107,.10);
+      border:1px solid rgba(76,201,107,.35);
+      color:#eafff0;
+      font-size:14px;
+    }
+    .photo{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:16px;
+      border:1px solid var(--stroke);
+      margin-top:12px;
+    }
+    .divider{height:1px;background:var(--stroke);margin:16px 0}
+    footer{
+      text-align:center;
+      padding:26px 12px 38px;
+      color:var(--muted);
+      border-top:1px solid var(--stroke);
+    }
+    .footer-strong{color:#fff}
+    .twoCol{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    @media(max-width:700px){.twoCol{grid-template-columns:1fr}}
+    .badge{
+      display:inline-block;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(106,166,255,.10);
+      border:1px solid rgba(106,166,255,.30);
+      color:#dcebff;
+      margin-left:8px;
+      vertical-align:middle;
+    }
+    .btnRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .btn{
+      display:inline-block;
+      padding:10px 12px;
+      border-radius:12px;
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--stroke);
+      color:#fff;
+      font-size:14px;
+    }
+    .btn:hover{background:rgba(255,255,255,.12);text-decoration:none}
   </style>
 </head>
+
 <body>
 
-  <div style="text-align:center;">
-  <img src="hoops-classic-2026.png">
+  <!-- HERO -->
+  <header class="hero">
+    <!-- Put hoops-classic-2026.png in the SAME folder as this index.html -->
+    <img class="logo" src="hoops-classic-2026.png" alt="Meadow Park Hoops Classic 2026">
 
+    <div class="title">Meadow Park Hoops Classic 2026</div>
+    <p class="subtitle">
+      Tournament weekends for Meadow Park teams. Rosters below. This page stays live and editable through GitHub.
+    </p>
 
-
-
-
-  <div class="section card">
-    <h2>5th–6th Combo Team</h2>
-    <div class="roster-grid">
-      <div class="name">Mesut Erarslan</div>
-      <div class="name">Surena Khosh Kholgh Sima</div>
-      <div class="name">Lennox Lei</div>
-      <div class="name">Vandon Salamati</div>
-      <div class="name">Nathan Cohen</div>
-      <div class="name">Miles Mabe</div>
-      <div class="name">Kaiden Nakagawa</div>
-      <div class="name">Joey Tang</div>
-      <div class="name">Brandon Wallin</div>
+    <div class="pillrow">
+      <span class="pill"><strong>5th Grade:</strong> March 7–8, 2026</span>
+      <span class="pill"><strong>5th–6th Combo:</strong> March 14–15, 2026</span>
+      <span class="pill">Dream • Believe • Succeed</span>
     </div>
-  </div>
+  </header>
 
-  <div class="section card">
-    <h2>5th Grade Team</h2>
-    <div class="roster-grid">
-      <div class="name">Gigi Algeria</div>
-      <div class="name">Hayden Cohen</div>
-      <div class="name">Eli Garrovillas</div>
-      <div class="name">Ravel Heddon</div>
-      <div class="name">Ido Magen</div>
-      <div class="name">Mia Anyanwu</div>
-      <div class="name">Sunwoo Park</div>
-      <div class="name">Andrew Strum</div>
-      <div class="name">Ethan Wallin</div>
+  <main class="wrap">
+    <div class="grid">
+
+      <!-- LEFT COLUMN -->
+      <div class="card">
+        <h2>Teams & Rosters <span class="badge">Updated anytime</span></h2>
+        <p class="small">
+          If you add photos later, upload them to the repo next to this file, then use the same filename in the image tag.
+        </p>
+
+        <div class="divider"></div>
+
+        <h3>5th–6th Combo Team (March 14–15)</h3>
+        <div class="roster-grid">
+          <div class="name">Mesut Erarslan</div>
+          <div class="name">Surena Khosh Kholgh Sima</div>
+          <div class="name">Lennox Lei</div>
+          <div class="name">Vandon Salamati</div>
+          <div class="name">Nathan Cohen</div>
+          <div class="name">Miles Mabe</div>
+          <div class="name">Kaiden Nakagawa</div>
+          <div class="name">Joey Tang</div>
+          <div class="name">Brandon Wallin</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <h3>5th Grade Team (March 7–8)</h3>
+        <div class="roster-grid">
+          <div class="name">Gigi Algeria</div>
+          <div class="name">Hayden Cohen</div>
+          <div class="name">Eli Garrovillas</div>
+          <div class="name">Ravel Heddon</div>
+          <div class="name">Ido Magen</div>
+          <div class="name">Mia Anyanwu</div>
+          <div class="name">Sunwoo Park</div>
+          <div class="name">Andrew Strum</div>
+          <div class="name">Ethan Wallin</div>
+        </div>
+
+        <div class="callout">
+          Want a team photo on the homepage? Upload a file like <strong>team-photo.jpg</strong> to this repo and then
+          uncomment the image section below.
+        </div>
+
+        <!-- OPTIONAL PHOTO (uncomment after uploading team-photo.jpg to the repo)
+        <img class="photo" src="team-photo.jpg" alt="Team Photo">
+        -->
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <aside class="card">
+        <h2>Quick Info</h2>
+
+        <h3>Game Weekends</h3>
+        <div class="twoCol">
+          <div class="name">
+            <strong>5th Grade</strong><br>
+            <span class="small">March 7–8, 2026</span>
+          </div>
+          <div class="name">
+            <strong>5th–6th Combo</strong><br>
+            <span class="small">March 14–15, 2026</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <h3>How to Update This Page</h3>
+        <ol class="list">
+          <li>Open <strong>index.html</strong> in GitHub</li>
+          <li>Tap/click the pencil icon to edit</li>
+          <li>Commit changes</li>
+          <li>Refresh the website</li>
+        </ol>
+
+        <div class="divider"></div>
+
+        <h3>Add Photos (No folders needed)</h3>
+        <ol class="list">
+          <li>Click <strong>Add file → Upload files</strong></li>
+          <li>Upload your image (example: <strong>team-photo.jpg</strong>)</li>
+          <li>In this file, add: <strong>&lt;img src="team-photo.jpg"&gt;</strong></li>
+        </ol>
+
+        <div class="btnRow">
+          <a class="btn" href="#top" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Back to top</a>
+        </div>
+
+        <p class="small" style="margin-top:14px;">
+          If you want, I can also add a schedule section once you have game times, plus a simple map link.
+        </p>
+      </aside>
+
     </div>
-  </div>
+  </main>
 
   <footer>
-    Dream • Believe • Succeed
+    <div class="footer-strong">Meadow Park Hoops Classic 2026</div>
+    <div>Dream • Believe • Succeed</div>
   </footer>
 
 </body>
